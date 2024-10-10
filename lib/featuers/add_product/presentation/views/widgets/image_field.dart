@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -29,7 +28,12 @@ class _ImageFieldState extends State<ImageField> {
           widget.onFileChanged(fileImage!);
           setState(() {});
         } catch (e) {
-          throw 'There Is An Error When Picking Image';
+          // ignore: use_build_context_synchronously
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('There was an error picking an image'),
+            ),
+          );
         }
       },
       child: Stack(

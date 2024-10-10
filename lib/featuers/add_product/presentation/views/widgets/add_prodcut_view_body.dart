@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_app_buttom.dart';
+import 'package:fruits_hub_dashboard/featuers/add_product/domain/entites/add_prodcut_entity.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/custom_text_field.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/featuer_check.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/image_field.dart';
@@ -94,11 +95,18 @@ class _AddProdcutViewBodyState extends State<AddProdcutViewBody> {
                 height: 16,
               ),
               CustomButtom(
-                  onPressed: () {
+                  onPressed: () async {
                     if (fileImage != null) {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        //   print('Validated');
+
+                        AddProdcutEntity prodcutEntity = AddProdcutEntity(
+                            name: name!,
+                            price: price!,
+                            code: code!,
+                            description: description!,
+                            imageFile: fileImage!,
+                            isFeatured: isFeatured!);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                         setState(() {});
