@@ -20,6 +20,12 @@ class ProductRepoImpl implements ProductRepo {
           'isFeatured': addProdcutEntity.isFeatured,
           'description': addProdcutEntity.description,
           'imageUrl': addProdcutEntity.imageUrl,
+          'calories': addProdcutEntity.calories,
+          'amountUnit': addProdcutEntity.amountUnit,
+          'avgRating': addProdcutEntity.avgRating,
+          'ratingCount': addProdcutEntity.ratingCount,
+          'expiryMonths': addProdcutEntity.expiryMonths,
+          'isOrganic': addProdcutEntity.isOrganic,
         },
       );
       return const Right(null);

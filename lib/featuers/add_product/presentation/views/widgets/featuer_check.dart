@@ -5,8 +5,12 @@ import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/wid
 
 class PrivacyCheck extends StatefulWidget {
   const PrivacyCheck(
-      {super.key, required this.onValueChanged, required this.onTap});
+      {super.key,
+      required this.onValueChanged,
+      required this.onTap,
+      required this.title});
   final Function(bool?) onValueChanged;
+  final String title;
   final Function()? onTap;
   @override
   State<PrivacyCheck> createState() => _CheckBoxForPrivacyState();
@@ -31,7 +35,7 @@ class _CheckBoxForPrivacyState extends State<PrivacyCheck> {
               TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Is Featuered ? ',
+                    text: widget.title,
                     style: TextStyles.semiBold13.copyWith(
                         color: const Color(0xff949D9E), fontFamily: 'Cairo'),
                   ),
