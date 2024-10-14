@@ -7,7 +7,7 @@ class AddProdcutEntity {
   final String description;
   final File imageFile;
   final bool isFeatured;
-  final String? imageUrl;
+  String? imageUrl;
 
   AddProdcutEntity(
       {required this.name,
