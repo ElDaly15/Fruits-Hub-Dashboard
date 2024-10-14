@@ -29,12 +29,12 @@ class AddProdcutViewBodyBlocConsumer extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return const ModalProgressHUD(
+        return ModalProgressHUD(
           color: Colors.transparent,
-          progressIndicator: CircularProgressIndicator(
+          progressIndicator: const CircularProgressIndicator(
               backgroundColor: Colors.green, color: Colors.lime),
-          inAsyncCall: true,
-          child: AddProdcutViewBody(),
+          inAsyncCall: state is AddProductLoading,
+          child: const AddProdcutViewBody(),
         );
       },
     );
