@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:fruits_hub_dashboard/featuers/dashboard/presentation/views/widgets/dashboard_view_body.dart';
 
 class DashboardView extends StatelessWidget {

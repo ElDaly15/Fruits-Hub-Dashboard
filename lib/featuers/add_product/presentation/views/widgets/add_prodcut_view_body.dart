@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_app_buttom.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/domain/entites/add_prodcut_entity.dart';
+import 'package:fruits_hub_dashboard/featuers/add_product/presentation/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/custom_text_field.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/featuer_check.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/image_field.dart';
@@ -72,7 +74,7 @@ class _AddProdcutViewBodyState extends State<AddProdcutViewBody> {
                   onChanged: (value) {
                     description = value;
                   },
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.name,
                   maxLines: 5,
                   obscureText: false,
                   isPassword: false,
@@ -107,6 +109,9 @@ class _AddProdcutViewBodyState extends State<AddProdcutViewBody> {
                             description: description!,
                             imageFile: fileImage!,
                             isFeatured: isFeatured!);
+
+                        BlocProvider.of<AddProductCubit>(context)
+                            .addProduct(addProductEntity: prodcutEntity);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                         setState(() {});

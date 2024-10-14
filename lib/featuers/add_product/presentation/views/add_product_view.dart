@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/add_prodcut_view_body.dart';
+
+import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/add_product_bloc_consumer.dart';
 
 class AddProductView extends StatelessWidget {
   const AddProductView({super.key});
@@ -12,7 +13,7 @@ class AddProductView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add Product'),
       ),
-      body: const AddProdcutViewBody(),
+      body: const AddProdcutViewBodyBlocConsumer(),
     );
   }
 }
