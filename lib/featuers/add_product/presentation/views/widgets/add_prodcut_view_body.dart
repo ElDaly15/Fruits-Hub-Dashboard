@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_app_buttom.dart';
-import 'package:fruits_hub_dashboard/featuers/add_product/domain/entites/add_prodcut_entity.dart';
+import 'package:fruits_hub_dashboard/featuers/add_product/domain/entites/product_enitity.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/manager/product_code_check_cubit/product_code_check_cubit.dart';
 import 'package:fruits_hub_dashboard/featuers/add_product/presentation/views/widgets/custom_text_field.dart';
@@ -148,9 +148,11 @@ class _AddProdcutViewBodyState extends State<AddProdcutViewBody> {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
 
-                        AddProdcutEntity prodcutEntity = AddProdcutEntity(
+                        ProductEntity prodcutEntity = ProductEntity(
                             name: name!,
+                            sellCount: 0,
                             price: price!,
+                            reviews: [],
                             code: code!,
                             description: description!,
                             imageFile: fileImage!,
